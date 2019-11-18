@@ -1,5 +1,7 @@
 #include <iostream>
 #include "walker.h"
+#include "geometry_msgs/Twist.h"
+#include "sensor_msgs/LaserScan.h"
 
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "walker_node");
@@ -12,7 +14,7 @@ int main(int argc, char **argv) {
 	turtlebot.SetRate(rate);
 	int velocity = 5;
 	if (stat == 1) {
-		turtlebot.Explore(rate);
+		turtlebot.Explore();
 	}
 	return 0;
 }
