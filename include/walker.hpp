@@ -29,7 +29,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /**
- *  @file       walker.h
+ *  @file       walker.hpp
  *  @author     Lydia Zoghbi
  *  @copyright  Copyright BSD License
  *  @date       11/18/2019
@@ -41,11 +41,11 @@
 #ifndef INCLUDE_WALKER_HPP_
 #define INCLUDE_WALKER_HPP_
 
+#include <iostream>
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/LaserScan.h"
-#include <iostream>
 
 /**
  *  @brief      A class for implemeting the walker 
@@ -115,5 +115,4 @@ class Walker {
 		double angle;
 };
 
-#endif // INCLUDE_WALKER_HPP_w
-
+#endif  // INCLUDE_WALKER_HPP_

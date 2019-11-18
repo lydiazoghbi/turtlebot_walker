@@ -39,10 +39,10 @@
  *
  */
 
-#include "walker.h"
+#include <iostream>
+#include "walker.hpp"
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/LaserScan.h"
-#include <iostream>
 
 // Define the default message rate
 int Walker::msg_rate = 1;
@@ -120,7 +120,7 @@ void Walker::Explore() {
 		if (angle == 0) {
 			pub.publish(MoveStraight(0.15));
 		}
-		
+
 		// If no obstacles on the right turn clockwise
 		while (angle == 1) {
 			pub.publish(Rotate(-50));

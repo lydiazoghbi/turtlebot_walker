@@ -40,7 +40,7 @@
  */
 
 #include <iostream>
-#include "walker.h"
+#include "walker.hpp"
 #include "geometry_msgs/Twist.h"
 #include "sensor_msgs/LaserScan.h"
 
@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
 	int rate;
 	int stat = 0;
 	nh.getParam("txstat", stat);
-	
+
 	// Create a Walker object called turtlebot
 	Walker turtlebot;
 	// Set rate for turtlebot object
