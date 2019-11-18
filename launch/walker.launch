@@ -10,8 +10,8 @@
     <param name="txstat" value="$(arg broadcast)" />
     </node>
 
-     <node pkg="rosbag" type="record" name="rosbag_record_cmd"
-       args="record  /mobile_base/commands/velocity" output="screen"
+     <node pkg="rosbag" type="record" name="record"
+       args="-a -x /camera(.*) -0 $(find turtlebot_walker)/results/walker.bag" output="screen"
        if="$(arg record_cmd)" />
 
 </launch> 
