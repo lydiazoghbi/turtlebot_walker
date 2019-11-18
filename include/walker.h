@@ -7,6 +7,7 @@ class Walker {
 	public:
 		Walker();
 		void Explore(const int& vel);
+		void SetRate(const int& rate);
 		geometry_msgs::Twist MoveStraight(const double& forwardVelocity);
 		geometry_msgs::Twist Rotate(const double& angle);
 

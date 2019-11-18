@@ -1,4 +1,4 @@
-#include "turtlebot_walker/walker.h"
+#include "walker.h"
 #include "geometry_msgs/Twist.h"
 #include <iostream>
 
@@ -14,6 +14,10 @@ Walker::Walker() {
 	velocity_.angular.z = 0;
 }
 
+void Walker::SetRate(const int& rate) {
+	msg_rate_ = rate;
+}
+
 geometry_msgs::Twist Walker::MoveStraight(const double& forwardVelocity) {
 	velocity_.linear.x = forwardVelocity;
 	velocity_.linear.y = forwardVelocity;
@@ -24,8 +28,8 @@ void Walker::Explore(const int& vel) {
 	ros::Rate loop_rate(msg_rate_);
 
 	while (ros::ok()) {
-		pub_.publish(MoveForward(1.5));
-		ros::SpinOnce();
+		pub_.publish(MoveStraight(1.5));
+		ros::spinOnce();
 		loop_rate.sleep();
 	}
 }

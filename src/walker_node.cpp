@@ -1,5 +1,5 @@
 #include <iostream>
-#include "turtlebot_walker/walker.h"
+#include "walker.h"
 
 int main(int argc, char **argv) {
 	ros::init(argc, argv, "walker_node");
