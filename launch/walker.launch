@@ -1,6 +1,6 @@
 <launch>
     <include file = "$(find turtlebot_gazebo)/launch/turtlebot_world.launch"> 
-    <arg name="world" value = "$(find turtlebot_walker)/world/ridiculousWorld.world">
+    	<arg name="world_file" value = "$(find turtlebot_walker)/world/ridiculousWorld.world"/>
     </include>
     <arg name="record" default="false" />
     <arg name="rate" default="1" />
@@ -12,6 +12,6 @@
 
      <node pkg="rosbag" type="record" name="record"
        args="-a -x /camera(.*) -0 $(find turtlebot_walker)/results/walker.bag" output="screen"
-       if="$(arg record_cmd)" />
+       if="$(arg record)" />
 
 </launch> 
