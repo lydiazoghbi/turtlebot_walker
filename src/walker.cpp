@@ -6,7 +6,7 @@
 int Walker::msg_rate = 1;
 
 Walker::Walker() {
-	pub = nh.advertise<geometry_msgs::Twist>("/mobile_base/commands/velocity", 10);
+	pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi", 500);
 	sub = nh.subscribe("/scan", 500, &Walker::GetSensorReadings, this);
 	velocity.linear.x = 0;
 	velocity.linear.y = 0;
@@ -52,23 +52,23 @@ void Walker::GetSensorReadings(const sensor_msgs::LaserScanConstPtr& scans) {
 
 void Walker::Explore() {
 	ros::Rate loop_rate(msg_rate);
-	pub.publish(MoveStraight(0.1));
+	pub.publish(MoveStraight(0.15));
 
 	while (ros::ok()) {
 		ros::Rate loop_rate(msg_rate);
 		if (angle == 0) {
-			pub.publish(MoveStraight(0.1));
+			pub.publish(MoveStraight(0.15));
 		}
 		
 		while (angle == 1) {
-			pub.publish(Rotate(-10));
+			pub.publish(Rotate(-50));
 			ros::spinOnce();
 			loop_rate.sleep();
 			ROS_INFO_STREAM("Rotating clockwise");
 		}
 		
 		while (angle == -1) {
-			pub.publish(Rotate(10));
+			pub.publish(Rotate(50));
 			ros::spinOnce();
 			loop_rate.sleep();
 			ROS_INFO_STREAM("Rotating counter-clockwise");

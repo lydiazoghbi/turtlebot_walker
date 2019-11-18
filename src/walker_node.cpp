@@ -12,7 +12,7 @@ int main(int argc, char **argv) {
 	
 	Walker turtlebot;
 	turtlebot.SetRate(rate);
-	int velocity = 5;
+	// int velocity = 5;
 	if (stat == 1) {
 		turtlebot.Explore();
 	}
