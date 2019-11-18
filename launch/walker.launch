@@ -1,4 +1,5 @@
 <launch>
+    <include file = "$(find turtlebot_gazebo)/launch/turtlebot_world.launch"> </include>
     <arg name="record_command" default="false" />
     <arg name="rate" default="1" />
     <arg name="broadcast" default="1" />

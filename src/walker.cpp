@@ -27,7 +27,7 @@ geometry_msgs::Twist Walker::MoveStraight(const double& forwardVelocity) {
 }
 
 geometry_msgs::Twist Walker::Rotate(const double& angle) {
-	velocity.linear.x = 0.2;
+	velocity.linear.x = 0.1;
 	velocity.angular.z = angle;
 	return velocity;
 }
@@ -57,18 +57,18 @@ void Walker::Explore() {
 	while (ros::ok()) {
 		ros::Rate loop_rate(msg_rate);
 		if (angle == 0) {
-			pub.publish(MoveStraight(0.3));
+			pub.publish(MoveStraight(0.1));
 		}
 		
 		while (angle == 1) {
-			pub.publish(Rotate(-1));
+			pub.publish(Rotate(-10));
 			ros::spinOnce();
 			loop_rate.sleep();
 			ROS_INFO_STREAM("Rotating clockwise");
 		}
 		
 		while (angle == -1) {
-			pub.publish(Rotate(1));
+			pub.publish(Rotate(10));
 			ros::spinOnce();
 			loop_rate.sleep();
 			ROS_INFO_STREAM("Rotating counter-clockwise");
