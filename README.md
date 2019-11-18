@@ -83,7 +83,7 @@ rosbag play ./walker.bag
 ```
 If you wish to examine the recorded data, in a new terminal type in the following:
 ```
-rostopic echo /scans
+rostopic echo /scan
 ```
 This will show the readings obtained from the laser sensor. Note that when the sensor display a nan value, this means that no obstacle is detected within the maximum working range of the sensor. If you wish to examine the velocities published to the robot, type in a new terminal:
 ```
